@@ -1,4 +1,5 @@
 {
+  "homepage": "https://crenata.github.io/cryptocurrency-swap",
   "name": "cryptocurrency-exchange",
   "version": "0.1.0",
   "description": "Simple Cryptocurrency Exchange",
@@ -13,6 +14,7 @@
     "bootstrap": "^5.1.3",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
+    "gh-pages": "^3.2.3",
     "identicon.js": "^2.3.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
@@ -24,6 +26,8 @@
     "web3": "^1.6.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "truffle-build": "truffle compile",
