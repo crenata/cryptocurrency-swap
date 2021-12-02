@@ -1,0 +1,9 @@
+/* starting EXIT animation */
+.fade-out-exit {
+    opacity: 1;
+}
+/* ending EXIT animation */
+.fade-out-exit-active {
+    opacity: 0;
+    transition: all 1000ms ease-in-out;
+}

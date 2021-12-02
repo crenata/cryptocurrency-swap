@@ -1,0 +1,55 @@
+{
+  "name": "cryptocurrency-exchange",
+  "version": "0.1.0",
+  "description": "Simple Cryptocurrency Exchange",
+  "private": true,
+  "author": "Crenata <havea.crenata@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@truffle/contract": "^4.3.42",
+    "bootstrap": "^5.1.3",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "identicon.js": "^2.3.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.2",
+    "web-vitals": "^1.0.1",
+    "web3": "^1.6.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "truffle-build": "truffle compile",
+    "test": "react-scripts test",
+    "truffle-test": "truffle test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.7.0"
+  }
+}

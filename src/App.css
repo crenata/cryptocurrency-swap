@@ -1,0 +1,79 @@
+@import url("fonts/Dancing-Script/DancingScript.css");
+@import url("fonts/Great-Vibes/GreatVibes.css");
+@import url("fonts/Roboto-Slab/RobotoSlab.css");
+
+.app {
+    font-family: "Roboto Slab", serif;
+    min-height: 100vh;
+}
+.app-content {
+    min-height: calc(100vh - 4rem);
+}
+.font-family-dancing-script {
+    font-family: "Dancing Script", cursive;
+}
+.font-family-great-vibes {
+    font-family: "Great Vibes", cursive;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.typing {
+    width: 15ch;
+    animation: typing 2s steps(15), blink .5s step-end infinite alternate;
+    overflow: hidden;
+    border-right: 2px solid;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.bgc-1F1E30 {
+    background-color: #1F1E30 !important;
+}
+.bgc-FFA500 {
+    background-color: #FFA500 !important;
+}
+.bgc-1C152D {
+    background-color: #1C152D !important;
+}
+.bgc-1A1E23 {
+    background-color: #1A1E23 !important;
+}
+.bgc-CBD3D5 {
+    background-color: #CBD3D5 !important;
+}
+
+.bgc-white-opacity-95 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+.bgc-1C152D-opacity-95 {
+    background-color: rgba(28, 21, 45, 0.95) !important;
+}
+
+.border-radius-1rem {
+    border-radius: 1rem !important;
+}
+
+.box-shadow-primary {
+    box-shadow: 0 0 20px 10px #0FF;
+}
