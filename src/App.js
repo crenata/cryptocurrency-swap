@@ -15,6 +15,8 @@ class App extends PureComponent {
         super(props);
         this.initialState = {
             loading: true,
+            web3: null,
+            newBlockHeadersSubscription: null,
             account: "",
             primaryBalance: 0,
             bep20Balance: 0,
@@ -36,24 +38,33 @@ class App extends PureComponent {
 
     loadWeb3() {
         this.setLoading(true, () => {
+            let web3 = null;
             if (!IsEmpty(window.ethereum)) {
-                window.web3 = new Web3(window.ethereum);
-                window.ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
-                    this.getAccounts(accounts);
-                    this.listenAccountChanges();
-                    this.listenChainChanges();
-                }).catch((error) => {
-                    this.errorGettingAccounts();
-                }).finally(() => {});
-            } else if (!IsEmpty(window.web3)) {
-                window.web3 = new Web3(window.web3.currentProvider);
-                if (!IsEmpty(window.ethereum)) {
-                    window.ethereum.enable().then((accounts) => {
+                web3 = new Web3(window.ethereum);
+                this.setState({
+                    web3: web3
+                }, () => {
+                    window.ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
                         this.getAccounts(accounts);
+                        this.getListeners();
                     }).catch((error) => {
                         this.errorGettingAccounts();
                     }).finally(() => {});
-                }
+                });
+            } else if (!IsEmpty(window.web3)) {
+                web3 = new Web3(window.web3.currentProvider);
+                this.setState({
+                    web3: web3
+                }, () => {
+                    if (!IsEmpty(window.ethereum)) {
+                        window.ethereum.enable().then((accounts) => {
+                            this.getAccounts(accounts);
+                            this.getListeners();
+                        }).catch((error) => {
+                            this.errorGettingAccounts();
+                        }).finally(() => {});
+                    }
+                });
             } else {
                 window.alert("Non-Ethereum browser detected. You should consider tyring Metamask!");
             }
@@ -65,23 +76,27 @@ class App extends PureComponent {
             this.setState({
                 account: accounts[0]
             }, () => {
-                window.web3.eth.getBalance(this.state.account).then((balance) => {
-                    this.setState({
-                        primaryBalance: balance
-                    }, () => {
-                        this.getBlockchainData();
-                    });
-                }).catch((error) => {
-                    console.error(error);
-                }).finally(() => {
-                    this.setLoading(false);
-                });
+                this.getPrimaryBalance();
             });
         } else {
             this.setState({
                 ...this.initialState
             });
         }
+    }
+
+    getPrimaryBalance() {
+        this.state.web3.eth.getBalance(this.state.account).then((balance) => {
+            this.setState({
+                primaryBalance: balance
+            }, () => {
+                this.getBlockchainData();
+            });
+        }).catch((error) => {
+            console.error(error);
+        }).finally(() => {
+            this.setLoading(false);
+        });
     }
 
     listenAccountChanges() {
@@ -100,9 +115,34 @@ class App extends PureComponent {
         }
     }
 
+    listenNewBlockHeaders() {
+        let newBlockHeadersSubscription = this.state.web3.eth.subscribe("newBlockHeaders", (error, blockHeader) => {
+            if (IsEmpty(error)) {
+                this.getPrimaryBalance();
+            } else {
+                console.error(error);
+            }
+        }).on("connected", (subscriptionId) => {
+            //
+        }).on("data", (data) => {
+            //
+        }).on("error", (error) => {
+            console.error(error);
+        });
+        this.setState({
+            newBlockHeadersSubscription: newBlockHeadersSubscription
+        });
+    }
+
     errorGettingAccounts() {
         console.error("Error getting account.");
         this.setLoading(false);
+    }
+
+    getListeners() {
+        this.listenAccountChanges();
+        this.listenChainChanges();
+        this.listenNewBlockHeaders();
     }
 
     getBlockchainData() {
@@ -120,7 +160,7 @@ class App extends PureComponent {
 
     loadBEP20Token() {
         const token = TruffleContract(BEP20Token);
-        token.setProvider(window.web3.currentProvider);
+        token.setProvider(this.state.web3.currentProvider);
         this.setState({
             bep20Token: token
         }, () => {
@@ -140,7 +180,7 @@ class App extends PureComponent {
 
     loadBNBSwap() {
         const bnbSwap = TruffleContract(BNBSwap);
-        bnbSwap.setProvider(window.web3.currentProvider);
+        bnbSwap.setProvider(this.state.web3.currentProvider);
         this.setState({
             bnbSwap: bnbSwap
         }, () => {

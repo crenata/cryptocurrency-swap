@@ -9,6 +9,7 @@
 .app-content {
     min-height: calc(100vh - 4rem);
 }
+
 .font-family-dancing-script {
     font-family: "Dancing Script", cursive;
 }

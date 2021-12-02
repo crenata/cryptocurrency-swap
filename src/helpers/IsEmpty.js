@@ -1,8 +1,6 @@
 const IsEmpty = (data) => {
     if (typeof data === "object") {
-        if (Object.keys(data).length === 0) {
-            return true;
-        } else if (!data) {
+        if (!data) {
             return true;
         }
         return false;
