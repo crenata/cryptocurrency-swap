@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/cryptocurrency-swap/static/css/main.9de2bc37.chunk.css",
-    "main.js": "/cryptocurrency-swap/static/js/main.584a2e01.chunk.js",
-    "main.js.map": "/cryptocurrency-swap/static/js/main.584a2e01.chunk.js.map",
-    "runtime-main.js": "/cryptocurrency-swap/static/js/runtime-main.d048f9b0.js",
-    "runtime-main.js.map": "/cryptocurrency-swap/static/js/runtime-main.d048f9b0.js.map",
-    "static/css/2.383c0125.chunk.css": "/cryptocurrency-swap/static/css/2.383c0125.chunk.css",
-    "static/js/2.55a8bb02.chunk.js": "/cryptocurrency-swap/static/js/2.55a8bb02.chunk.js",
-    "static/js/2.55a8bb02.chunk.js.map": "/cryptocurrency-swap/static/js/2.55a8bb02.chunk.js.map",
-    "static/js/3.ba747ec1.chunk.js": "/cryptocurrency-swap/static/js/3.ba747ec1.chunk.js",
-    "static/js/3.ba747ec1.chunk.js.map": "/cryptocurrency-swap/static/js/3.ba747ec1.chunk.js.map",
-    "index.html": "/cryptocurrency-swap/index.html",
-    "static/css/2.383c0125.chunk.css.map": "/cryptocurrency-swap/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.9de2bc37.chunk.css.map": "/cryptocurrency-swap/static/css/main.9de2bc37.chunk.css.map",
-    "static/js/2.55a8bb02.chunk.js.LICENSE.txt": "/cryptocurrency-swap/static/js/2.55a8bb02.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/cryptocurrency-swap/static/media/RobotoSlab-Thin.e6423a95.ttf",
-    "static/media/BgForest.css": "/cryptocurrency-swap/static/media/forest.c7368780.jpg",
-    "static/media/logo.6ce24c58.svg": "/cryptocurrency-swap/static/media/logo.6ce24c58.svg"
+    "main.css": "/static/css/main.cba912aa.chunk.css",
+    "main.js": "/static/js/main.584a2e01.chunk.js",
+    "main.js.map": "/static/js/main.584a2e01.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.22c342fc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.22c342fc.js.map",
+    "static/css/2.383c0125.chunk.css": "/static/css/2.383c0125.chunk.css",
+    "static/js/2.6a48c41b.chunk.js": "/static/js/2.6a48c41b.chunk.js",
+    "static/js/2.6a48c41b.chunk.js.map": "/static/js/2.6a48c41b.chunk.js.map",
+    "static/js/3.ba747ec1.chunk.js": "/static/js/3.ba747ec1.chunk.js",
+    "static/js/3.ba747ec1.chunk.js.map": "/static/js/3.ba747ec1.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.cba912aa.chunk.css.map": "/static/css/main.cba912aa.chunk.css.map",
+    "static/js/2.6a48c41b.chunk.js.LICENSE.txt": "/static/js/2.6a48c41b.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/RobotoSlab-Thin.e6423a95.ttf",
+    "static/media/BgForest.css": "/static/media/forest.c7368780.jpg",
+    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d048f9b0.js",
+    "static/js/runtime-main.22c342fc.js",
     "static/css/2.383c0125.chunk.css",
-    "static/js/2.55a8bb02.chunk.js",
-    "static/css/main.9de2bc37.chunk.css",
+    "static/js/2.6a48c41b.chunk.js",
+    "static/css/main.cba912aa.chunk.css",
     "static/js/main.584a2e01.chunk.js"
   ]
 }
