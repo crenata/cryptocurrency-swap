@@ -5410,97 +5410,15 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
-    "5777": {
-      "events": {
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        },
-        "0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "account",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "token",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "rate",
-              "type": "uint256"
-            }
-          ],
-          "name": "TokensPurchased",
-          "type": "event"
-        },
-        "0x697c42d55a5e1fed3f464ec6f38b32546a0bd368dc8068b065c67566d73f3290": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "account",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "token",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "rate",
-              "type": "uint256"
-            }
-          ],
-          "name": "TokensSold",
-          "type": "event"
-        }
-      },
+    "3": {
+      "events": {},
       "links": {},
-      "address": "0xcC20A02b82E36233A7b326094268eB2616A7CCA2",
-      "transactionHash": "0x36f156413431993a0222f7ce40d21fab6226a91c625dd74a6f14f732e9c03574"
+      "address": "0xB056EEB7B95E8Ff9f98C9f00702817C8919Ee876",
+      "transactionHash": "0x5c8ec47d894b9be359c34360ba6239b0dc0ed8e26aa22d45dbb0202b833ce032"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-01T14:21:10.025Z",
+  "updatedAt": "2021-12-03T13:42:41.284Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

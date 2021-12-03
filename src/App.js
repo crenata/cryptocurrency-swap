@@ -4,6 +4,7 @@ import Web3 from "web3";
 import TruffleContract from "@truffle/contract";
 import Web3Context from "./contexts/Web3Context";
 import IsEmpty from "./helpers/IsEmpty";
+import ErrorNotDeployed from "./helpers/errors/ErrorNotDeployed";
 import BEP20Token from "./contracts/BEP20Token.json";
 import BNBSwap from "./contracts/BNBSwap.json";
 import "./App.css";
@@ -22,17 +23,21 @@ class App extends PureComponent {
             bep20Balance: 0,
             bep20Token: null,
             bnbSwap: null,
-            loadWeb3: () => false
+            rate: 0,
+            loadWeb3: () => false,
+            setLoading: () => false
         };
         this.state = {
             ...this.initialState
         };
         this.loadWeb3 = this.loadWeb3.bind(this);
+        this.setLoading = this.setLoading.bind(this);
     }
 
     componentDidMount() {
         this.setState({
-            loadWeb3: this.loadWeb3
+            loadWeb3: this.loadWeb3,
+            setLoading: this.setLoading
         }, () => this.loadWeb3());
     }
 
@@ -86,17 +91,19 @@ class App extends PureComponent {
     }
 
     getPrimaryBalance() {
-        this.state.web3.eth.getBalance(this.state.account).then((balance) => {
-            this.setState({
-                primaryBalance: balance
-            }, () => {
-                this.getBlockchainData();
+        if (!IsEmpty(this.state.account)) {
+            this.state.web3.eth.getBalance(this.state.account).then((balance) => {
+                this.setState({
+                    primaryBalance: balance
+                }, () => {
+                    this.getBlockchainData();
+                });
+            }).catch((error) => {
+                console.error(error);
+            }).finally(() => {
+                this.setLoading(false);
             });
-        }).catch((error) => {
-            console.error(error);
-        }).finally(() => {
-            this.setLoading(false);
-        });
+        }
     }
 
     listenAccountChanges() {
@@ -173,7 +180,7 @@ class App extends PureComponent {
                     console.error(error);
                 }).finally(() => {});
             }).catch((error) => {
-                console.error(error);
+                ErrorNotDeployed(this.state.bep20Token, error);
             }).finally(() => {});
         });
     }
@@ -185,9 +192,15 @@ class App extends PureComponent {
             bnbSwap: bnbSwap
         }, () => {
             this.state.bnbSwap.deployed().then((data) => {
-                console.log('BNBSwap :', data);
+                data.rate().then((result) => {
+                    this.setState({
+                        rate: result
+                    });
+                }).catch((error) => {
+                    console.error(error);
+                }).finally(() => {});
             }).catch((error) => {
-                console.error(error);
+                ErrorNotDeployed(this.state.bnbSwap, error);
             }).finally(() => {});
         });
     }

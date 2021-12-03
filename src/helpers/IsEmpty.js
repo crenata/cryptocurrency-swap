@@ -18,6 +18,11 @@ const IsEmpty = (data) => {
             return true;
         }
         return false;
+    } else if (typeof data === "number") {
+        if (data === 0) {
+            return true;
+        }
+        return false;
     } else if (typeof data === "undefined") {
         return true;
     }

@@ -9,7 +9,9 @@ const Web3Context = React.createContext({
     bep20Balance: 0,
     bep20Token: null,
     bnbSwap: null,
-    loadWeb3: () => false
+    rate: 0,
+    loadWeb3: () => false,
+    setLoading: () => false
 });
 
 export default Web3Context;

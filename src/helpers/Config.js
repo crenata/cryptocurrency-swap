@@ -13,6 +13,10 @@ const Config = {
             Index: "/teams",
             Havea: "/teams/havea",
         }
+    },
+    SwapSwitch: {
+        FromTo: 0,
+        ToFrom: 1
     }
 };
 
